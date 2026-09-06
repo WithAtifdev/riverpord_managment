@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpord_management/stateprovider/counterApp.dart';
+import 'package:riverpord_management/stateNotifierprovider/screen/todo_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
-  @override
+  @override 
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp(
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: CounterApp(),
+        home: TodoScreen(),
       ),
     );
   }

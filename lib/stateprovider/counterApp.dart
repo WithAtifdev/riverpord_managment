@@ -7,6 +7,7 @@ final counterProvider = StateProvider<int>((ref) {
   return 0;
 });
 
+
 class  CounterApp extends ConsumerWidget {
   const CounterApp({super.key});
   @override
