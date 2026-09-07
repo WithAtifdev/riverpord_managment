@@ -8,17 +8,30 @@ class StockScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final stockPrice = ref.watch(stockPriceProvider);
+    
 
     return Scaffold(
-      body: Center(
-        child: stockPrice.when(
-          data: (price) => Text(
-           price.toStringAsFixed(2),
+      body: Consumer(
+        builder: (context, ref, child){
+final stockPrice = ref.watch(stockPriceProvider);
+     return Center(
+          child: stockPrice.when(
+            skipLoadingOnRefresh: false,
+            data: (price) => Text(
+             price.toStringAsFixed(2),
+            ),
+            loading: () => const CircularProgressIndicator(),
+            error: (error, stack) =>
+            TextButton(
+              onPressed: () {
+                ref.invalidate(stockPriceProvider);
+              },
+              child: Text('Error: $error'),
           ),
-          loading: () => const CircularProgressIndicator(),
-          error: (error, stack) => Text('Error: $error'),
         ),
+     );
+        }
+        
       ),
     );
   }

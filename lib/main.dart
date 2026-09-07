@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpord_management/streamprovider/stockscreen.dart';
+import 'package:riverpord_management/futureprovider/Api/screen/postscreen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: StockScreen(),
+        home: Postscreen(),
       ),
     );
   }
