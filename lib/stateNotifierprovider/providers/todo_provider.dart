@@ -1,11 +1,20 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpord_management/stateNotifierprovider/model/todo.dart';
 
+
+final todoProvider =
+    NotifierProvider<TodoProvider, List<Todo>>(
+  TodoProvider.new,
+);
+
+
 class TodoProvider extends Notifier<List<Todo>> {
   @override
 List<Todo> build() {
   return [];
 }
+
+
   void addTodo(String name) {
    final todo = Todo(
       id: DateTime.now().toString(),
@@ -27,10 +36,6 @@ List<Todo> build() {
   }
 }
 
-final todoProvider =
-    NotifierProvider<TodoProvider, List<Todo>>(
-  TodoProvider.new,
-);
 
 
 /// StateNotifierProvider this is old style 
